@@ -2,7 +2,7 @@
 layout: member
 category: staff
 title: Professor Name
-image: pi.jpg
+image: researcher.png
 role: Principal Investigator
 permalink: /team/pi-name
 social:

@@ -2,7 +2,7 @@
 layout: member
 category: student
 title: PhD Student Name
-image: student.jpg
+image: researcher.png
 role: PhD Student
 permalink: /team/phd-student
 social:

@@ -2,7 +2,7 @@
 layout: member
 category: past
 title: Alumni Name
-image: alumni.jpg
+image: researcher.png
 role: Alumni
 permalink: /team/alumni-name
 grad_year: 2023
