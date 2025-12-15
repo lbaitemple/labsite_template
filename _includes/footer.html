@@ -3,30 +3,36 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-4">
-				<p>{{ site.title }}</p>
-				<img class="img-fluid" src="{{ site.baseurl }}/images/logo/lab-logo.png"
-				     style="max-width: 100px;">
+				<p><strong>{{ site.title }}</strong></p>
+				<p>{{ site.description }}</p>
 			</div>
 
 			<div class="col-sm-4">
-				<p>Links</p>
+				<p><strong>Quick Links</strong></p>
 				<ul class="list-unstyled">
-					<li><a href="https://github.com/ericdaat/research-lab-website">Github Repository</a></li>
+					<li><a href="{{ site.baseurl }}/research">Research</a></li>
+					<li><a href="{{ site.baseurl }}/team">Team</a></li>
+					<li><a href="{{ site.baseurl }}/publications">Publications</a></li>
+					<li><a href="{{ site.baseurl }}/software">Software</a></li>
 				</ul>
 			</div>
 
 			<div class="col-sm-4">
-				<p>Contact</p>
+				<p><strong>Contact</strong></p>
 				<p>
 				Rm 604, College of Engineering<br>
-				1947 N 12th Street, <br>
-				Phiadelphia, PA 19122<br>
+				1947 N 12th Street<br>
+				Philadelphia, PA 19122<br>
+				<br>
+				Email: {{ site.email }}
 			   </p>
 			</div>
 		</div>
 
-		<div class="row mt-3">
-			<p class="text-center">Copyright, 2019</p>
+		<div class="row" style="margin-top: 20px;">
+			<div class="col-sm-12 text-center">
+				<p style="margin: 0;">&copy; {% assign current_year = 'now' | date: "%Y" %}{{ current_year }} {{ site.title }}. All rights reserved.</p>
+			</div>
 		</div>
 	</div>
   </div>
