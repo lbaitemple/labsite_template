@@ -4,7 +4,7 @@ email: your-email@university.edu
 description: > 
   Your lab description here. This is a template for academic research lab websites.
 baseurl: "/labsite_template" # Leave empty for root domain, or use "/your-repo-name" for GitHub Pages
-url: "lbaitemple.github.io/" # GitHub Pages will auto-populate this
+url: "" # GitHub Pages will auto-populate this
 # Use site.github.url in templates - it's automatically set by GitHub Pages
 # For releases, use: {{ site.github.repository_url }}/releases/download in templates
 
