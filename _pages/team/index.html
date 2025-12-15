@@ -1,0 +1,195 @@
+---
+title: "Team"
+layout: default
+excerpt: "CFL Lab: Team members"
+sitemap: false
+permalink: /team/
+---
+
+<h1>{{page.title}}</h1>
+
+<!-- Staff -->
+
+<h2><a id="staff"></a>Staff</h2>
+<div class="row" style="display: flex; flex-wrap: wrap; justify-content: center;">
+{% assign members = site.pages | sort: 'title' %}
+{% for member in members %}
+    {% if member.path contains 'team/' and member.category == 'staff' %}
+    <div class="text-center" style="margin-bottom: 20px; padding: 0 15px;">
+        <a href="{{ site.baseurl }}{{ member.url }}">
+            <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
+                class="img-responsive img-thumbnail"
+                style="max-width: 150px; margin: 0 auto;"/>
+        </a>
+        <h4 style="margin-top: 10px;">{{ member.title }}</h4>
+        <p class="text-muted">{{ member.role }}</p>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+
+<!-- Students -->
+
+<h2><a id="student"></a>Students</h2>
+
+<!-- PhD Students -->
+<h3>PhD Students</h3>
+<div class="row" style="display: flex; flex-wrap: wrap; justify-content: center;">
+{% assign members = site.pages | sort: 'title' %}
+{% for member in members %}
+    {% if member.path contains 'team/' and member.category == 'student' and member.role == 'PhD Student' %}
+    <div class="text-center" style="margin-bottom: 20px; padding: 0 15px; width: 33.33%;">
+        <a href="{{ site.baseurl }}{{ member.url }}">
+            <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
+                class="img-responsive img-thumbnail"
+                style="max-width: 100px; margin: 0 auto;"/>
+        </a>
+        <h5 style="margin-top: 10px;">{{ member.title }}</h5>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+
+<!-- Master Students -->
+<h3>Master Students</h3>
+<div class="row" style="display: flex; flex-wrap: wrap; justify-content: center;">
+{% assign members = site.pages | sort: 'title' %}
+{% for member in members %}
+    {% if member.path contains 'team/' and member.category == 'student' and member.role == 'Master Student' %}
+    <div class="text-center" style="margin-bottom: 20px; padding: 0 15px; width: 33.33%;">
+        <a href="{{ site.baseurl }}{{ member.url }}">
+            <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
+                class="img-responsive img-thumbnail"
+                style="max-width: 100px; margin: 0 auto;"/>
+        </a>
+        <h5 style="margin-top: 10px;">{{ member.title }}</h5>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+
+<!-- Undergraduate Students -->
+<h3>Undergraduate Students</h3>
+<div class="row" style="display: flex; flex-wrap: wrap; justify-content: center;">
+{% assign members = site.pages | sort: 'title' %}
+{% for member in members %}
+    {% if member.path contains 'team/' and member.category == 'student' and member.role == 'Undergraduate Student' %}
+    <div class="text-center" style="margin-bottom: 20px; padding: 0 15px; width: 33.33%;">
+        <a href="{{ site.baseurl }}{{ member.url }}">
+            <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
+                class="img-responsive img-thumbnail"
+                style="max-width: 100px; margin: 0 auto;"/>
+        </a>
+        <h5 style="margin-top: 10px;">{{ member.title }}</h5>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+
+<!-- Past Members -->
+
+<h2><a id="past"></a>Past Members</h2>
+
+{% assign all_members = site.pages | where: "category", "past" %}
+{% assign past_members = "" | split: "," %}
+{% for member in all_members %}
+    {% if member.path contains 'team/' %}
+        {% assign past_members = past_members | push: member %}
+    {% endif %}
+{% endfor %}
+{% assign past_members = past_members | sort: 'grad_year' | reverse %}
+{% assign all_years = "" | split: "," %}
+{% for member in past_members %}
+    {% assign year_num = member.grad_year | plus: 0 %}
+    {% unless all_years contains year_num %}
+        {% assign all_years = all_years | push: year_num %}
+    {% endunless %}
+{% endfor %}
+{% assign all_years = all_years | sort | reverse %}
+{% assign recent_years = all_years | slice: 0, 3 %}
+{% assign older_years = all_years | slice: 3, 100 %}
+
+<!-- Recent Years (expanded) -->
+{% for year in recent_years %}
+{% assign year_num = year | plus: 0 %}
+<h3>Class of {{ year_num }}</h3>
+<div class="row" style="display: flex; flex-wrap: wrap; justify-content: center;">
+{% for member in past_members %}
+    {% assign member_year = member.grad_year | plus: 0 %}
+    {% if member_year == year_num %}
+    <div class="text-center" style="margin-bottom: 20px; padding: 0 15px; width: 25%;">
+        <a href="{{ site.baseurl }}{{ member.url }}">
+            <img src="{{ site.url }}{{ site.baseurl }}/images/team/alumni/{{ member.grad_year }}/{{ member.image }}"
+                class="img-responsive img-thumbnail"
+                style="max-width: 100px; margin: 0 auto;"/>
+        </a>
+        <h5 style="margin-top: 10px;">{{ member.title }}</h5>
+        <p class="text-muted" style="font-size: 12px;">{{ member.role }} ({{ member.grad_year }})</p>
+        {% if member.thesis %}
+        {% for item in member.thesis %}
+        {% assign pdf_url = "" %}
+        {% if item.release %}
+            {% assign pdf_url = site.releases_url | append: "/" | append: item.release %}
+        {% elsif item.url %}
+            {% assign pdf_url = item.url %}
+        {% endif %}
+        <p style="font-size: 11px; margin: 5px 0;">
+        <a href="https://docs.google.com/viewer?url={{ pdf_url | url_encode }}&embedded=true" target="_blank"><i class="fas fa-file-pdf"></i> {{ item.title }}</a>
+        </p>
+        {% endfor %}
+        {% endif %}
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+
+<!-- Older Years (collapsed) -->
+{% if older_years.size > 0 %}
+<div class="panel panel-default" style="margin-top: 20px;">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#older-members" style="color: inherit;">
+                <span class="glyphicon glyphicon-chevron-down"></span> Earlier Alumni ({{ older_years | first }} and before)
+            </a>
+        </h4>
+    </div>
+    <div id="older-members" class="panel-collapse collapse">
+        <div class="panel-body">
+            {% for year in older_years %}
+            {% assign year_num = year | plus: 0 %}
+            <h4>Class of {{ year_num }}</h4>
+            <div class="row" style="display: flex; flex-wrap: wrap; justify-content: center;">
+            {% for member in past_members %}
+                {% assign member_year = member.grad_year | plus: 0 %}
+                {% if member_year == year_num %}
+                <div class="text-center" style="margin-bottom: 20px; padding: 0 15px; width: 25%;">
+                    <a href="{{ site.baseurl }}{{ member.url }}">
+                        <img src="{{ site.url }}{{ site.baseurl }}/images/team/alumni/{{ member.grad_year }}/{{ member.image }}"
+                            class="img-responsive img-thumbnail"
+                            style="max-width: 100px; margin: 0 auto;"/>
+                    </a>
+                    <h5 style="margin-top: 10px;">{{ member.title }}</h5>
+                    <p class="text-muted" style="font-size: 12px;">{{ member.role }} ({{ member.grad_year }})</p>
+                    {% if member.thesis %}
+                    {% for item in member.thesis %}
+                    {% assign pdf_url = "" %}
+                    {% if item.release %}
+                        {% assign pdf_url = site.releases_url | append: "/" | append: item.release %}
+                    {% elsif item.url %}
+                        {% assign pdf_url = item.url %}
+                    {% endif %}
+                    <p style="font-size: 11px; margin: 5px 0;">
+                    <a href="https://docs.google.com/viewer?url={{ pdf_url | url_encode }}&embedded=true" target="_blank"><i class="fas fa-file-pdf"></i> {{ item.title }}</a>
+                    </p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}

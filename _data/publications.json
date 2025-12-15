@@ -1,0 +1,21 @@
+{
+  "publications": [
+    {
+      "title": "Sample Paper Title: A Novel Approach to Research",
+      "authors": "Author1, Author2, Author3",
+      "venue": "International Conference on Example Research (ICER)",
+      "year": 2024,
+      "type": "conference",
+      "pdf": "https://example.com/paper.pdf",
+      "doi": "10.1234/example.2024"
+    },
+    {
+      "title": "Another Research Paper on Important Topics",
+      "authors": "Author2, Author4, Author1",
+      "venue": "Journal of Example Studies",
+      "year": 2023,
+      "type": "journal",
+      "pdf": "https://example.com/paper2.pdf"
+    }
+  ]
+}

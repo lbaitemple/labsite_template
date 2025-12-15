@@ -1,0 +1,29 @@
+# Site settings
+title: Your Lab Name
+email: your-email@university.edu
+description: > 
+  Your lab description here. This is a template for academic research lab websites.
+baseurl: "" # Leave empty for root domain, or use "/your-repo-name" for GitHub Pages
+url: "https://yourusername.github.io" # Your site URL
+releases_url: "https://github.com/yourusername/your-repo/releases/download"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Includes
+include:
+  - _pages
+  - _data
+
+# Excludes
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:path/

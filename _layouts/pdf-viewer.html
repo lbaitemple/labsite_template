@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ site.baseurl }}/team">Team</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+                </ol>
+            </nav>
+            
+            <h2>{{ page.title }}</h2>
+            {% if page.author %}<p class="text-muted">Author: {{ page.author }}</p>{% endif %}
+            {% if page.year %}<p class="text-muted">Year: {{ page.year }}</p>{% endif %}
+            
+            <div style="margin: 20px 0;">
+                <a href="{{ site.releases_url }}/{{ page.pdf }}" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+            
+            <div style="width: 100%; height: 800px; border: 1px solid #ddd;">
+                <iframe 
+                    src="https://docs.google.com/viewer?url={{ site.releases_url }}/{{ page.pdf }}&embedded=true" 
+                    style="width: 100%; height: 100%;" 
+                    frameborder="0">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>

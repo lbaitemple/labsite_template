@@ -1,0 +1,107 @@
+ACADEMIC LAB WEBSITE TEMPLATE
+==============================
+
+This template includes everything you need to create a professional academic lab website.
+
+DIRECTORY STRUCTURE
+-------------------
+template/
+├── _config.yml              # Site configuration
+├── _data/                   # Data files
+│   ├── news.yml            # News items
+│   └── publications.json   # Publications list
+├── _includes/              # Reusable components
+│   ├── analytics.html
+│   ├── footer.html
+│   ├── head.html
+│   ├── header.html
+│   └── tweets.html
+├── _layouts/               # Page layouts
+│   ├── default.html
+│   ├── homelay.html
+│   ├── member.html
+│   └── pdf-viewer.html
+├── _pages/                 # Site pages
+│   ├── 404.md
+│   ├── home.md
+│   ├── news.html
+│   ├── openings.md
+│   ├── publications.html
+│   ├── research-intro.md
+│   ├── research.html
+│   ├── software.md
+│   ├── research/           # Research project files
+│   │   └── sample-project.md
+│   └── team/               # Team member files
+│       ├── index.html
+│       ├── pi-name.md
+│       ├── phd-student.md
+│       └── alumni/
+│           └── 2023/
+│               └── alumni-example.md
+├── _plugins/               # Jekyll plugins
+│   └── markdown.rb
+├── _sass/                  # Sass stylesheets
+│   ├── _bootstrap.scss
+│   └── bootstrap/
+├── css/                    # Main CSS
+│   └── main.scss
+├── fonts/                  # Web fonts (Bootstrap glyphicons)
+├── images/                 # Images directory
+│   ├── logo/
+│   ├── news/
+│   ├── research/
+│   ├── slider/
+│   ├── team/
+│   │   └── alumni/
+│   └── README.md
+├── js/                     # JavaScript files
+│   ├── bootstrap.js
+│   ├── bootstrap.min.js
+│   └── npm.js
+├── vendor/                 # Third-party libraries
+├── .gitignore             # Git ignore file
+├── Gemfile                # Ruby dependencies
+├── LICENSE                # MIT License
+├── README.md              # Full documentation
+├── SETUP.md               # Detailed setup guide
+├── QUICKSTART.md          # Quick start guide
+└── FEATURES.md            # Feature list
+
+PAGES INCLUDED
+--------------
+✓ Home page with dynamic slider
+✓ Team page with staff/students/alumni
+✓ Research projects with search & filters
+✓ Publications with tabbed interface
+✓ News feed with images
+✓ Software showcase
+✓ Openings/positions page
+✓ 404 error page
+
+SAMPLE CONTENT
+--------------
+✓ Sample team members (PI, student, alumni)
+✓ Sample research project
+✓ Sample publications
+✓ Sample news items
+✓ Placeholder text and structure
+
+DOCUMENTATION
+-------------
+✓ README.md - Complete documentation
+✓ SETUP.md - Step-by-step setup instructions
+✓ QUICKSTART.md - 5-minute quick start
+✓ FEATURES.md - Full feature list
+✓ images/README.md - Image guidelines
+✓ Inline code comments
+
+READY TO USE
+------------
+1. Edit _config.yml with your lab info
+2. Replace sample content with your own
+3. Add your images
+4. Run: bundle exec jekyll serve
+5. Deploy to GitHub Pages
+
+For detailed instructions, see QUICKSTART.md or SETUP.md

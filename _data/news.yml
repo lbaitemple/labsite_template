@@ -1,0 +1,16 @@
+- date: 01/15/2024
+  title: "Welcome to Our Lab"
+  image: "news/sample.jpg"  # Optional - remove if no image
+  tags:
+    - announcement
+  content: >
+    This is a sample news item. Edit _data/news.yml to add your lab news.
+    You can include images and tags for each news item.
+
+- date: 12/01/2023
+  title: "Paper Accepted"
+  tags:
+    - publication
+    - conference
+  content: >
+    Our paper was accepted to [Conference Name]. Congratulations to the team!

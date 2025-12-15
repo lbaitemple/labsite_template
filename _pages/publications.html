@@ -1,0 +1,351 @@
+---
+title: "Publications"
+layout: default
+excerpt: "CFL Lab -- Publications."
+sitemap: false
+permalink: /publications/
+---
+
+<h1>{{page.title}}</h1>
+
+<!-- Tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#conferences" aria-controls="conferences" role="tab" data-toggle="tab">Conference Publications</a></li>
+    <li role="presentation"><a href="#journals" aria-controls="journals" role="tab" data-toggle="tab">Journal Publications</a></li>
+    <li role="presentation"><a href="#byyear" aria-controls="byyear" role="tab" data-toggle="tab">By Year</a></li>
+    <li role="presentation"><a href="#search" aria-controls="search" role="tab" data-toggle="tab">Search</a></li>
+</ul>
+
+<!-- Tab Content -->
+<div class="tab-content">
+    <!-- Conference Publications -->
+    <div role="tabpanel" class="tab-pane active" id="conferences">
+        <div class="panel-group" id="accordion-conf">
+            <div class="panel panel-default">
+            {% assign conf_pubs = site.data.publications | where: "type", "paper-conference" %}
+            {% assign conf_total = conf_pubs | size %}
+            {% assign conf_index = 0 %}
+            {% for publi in site.data.publications %}
+                {% if publi.type == "paper-conference" %}
+                {% assign conf_index = conf_index | plus: 1 %}
+                {% assign display_num = conf_total | minus: conf_index | plus: 1 %}
+                <div class="panel-heading">
+                    <a data-toggle="collapse" data-parent="#accordion-conf"
+                       href="#collapse-conf-{{conf_index}}"
+                       style="color: inherit;">
+                    <strong>[{{display_num}}]</strong>
+                    <!-- authors -->
+                    {% assign authors = "" | split:"/" %}
+                    {% for author in publi.author %}
+                        {% assign authors = authors | push: author.family %}
+                    {% endfor %}
+                    {{ authors | array_to_sentence_string }},
+
+                    <!-- title with link -->
+                    "{{ publi.title }}",
+
+                    <!-- container -->
+                    <b>{{ publi.container-title }}</b>
+
+                    <!-- issued date -->
+                    ({{ publi.issued.date-parts | jsonify | slice: 3,4 }}),
+
+                    <!-- DOI -->
+                    {% if publi.DOI %}
+                        <a href="https://doi.org/{{publi.DOI}}">DOI:{{publi.DOI}}</a>
+                    {% endif %}
+                    </a>
+                </div>
+
+                <div id="collapse-conf-{{conf_index}}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>{{ publi.abstract }}</p>
+                        {% if publi.DOI %}
+                        <a class="btn btn-outline-primary" href="https://doi.org/{{publi.DOI}}"
+                           role="button" target="blank">Link</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Journal Publications -->
+    <div role="tabpanel" class="tab-pane" id="journals">
+        <div class="panel-group" id="accordion-journal">
+            <div class="panel panel-default">
+            {% assign journal_pubs = site.data.publications | where: "type", "article-journal" %}
+            {% assign journal_total = journal_pubs | size %}
+            {% assign journal_index = 0 %}
+            {% for publi in site.data.publications %}
+                {% if publi.type == "article-journal" %}
+                {% assign journal_index = journal_index | plus: 1 %}
+                {% assign display_num = journal_total | minus: journal_index | plus: 1 %}
+                <div class="panel-heading">
+                    <a data-toggle="collapse" data-parent="#accordion-journal"
+                       href="#collapse-journal-{{journal_index}}"
+                       style="color: inherit;">
+                    <strong>[{{display_num}}]</strong>
+                    <!-- authors -->
+                    {% assign authors = "" | split:"/" %}
+                    {% for author in publi.author %}
+                        {% assign authors = authors | push: author.family %}
+                    {% endfor %}
+                    {{ authors | array_to_sentence_string }},
+
+                    <!-- title with link -->
+                    "{{ publi.title }}",
+
+                    <!-- container -->
+                    <b>{{ publi.container-title }}</b>
+
+                    <!-- issued date -->
+                    ({{ publi.issued.date-parts | jsonify | slice: 3,4 }}),
+
+                    <!-- DOI -->
+                    {% if publi.DOI %}
+                        <a href="https://doi.org/{{publi.DOI}}">DOI:{{publi.DOI}}</a>
+                    {% endif %}
+                    </a>
+                </div>
+
+                <div id="collapse-journal-{{journal_index}}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>{{ publi.abstract }}</p>
+                        {% if publi.DOI %}
+                        <a class="btn btn-outline-primary" href="https://doi.org/{{publi.DOI}}"
+                           role="button" target="blank">Link</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- By Year -->
+    <div role="tabpanel" class="tab-pane" id="byyear">
+        {% assign all_years = "" | split: "," %}
+        {% for publi in site.data.publications %}
+            {% assign pub_year = publi.issued.date-parts | first | first | append: "" %}
+            {% unless all_years contains pub_year %}
+                {% assign all_years = all_years | push: pub_year %}
+            {% endunless %}
+        {% endfor %}
+        {% assign all_years = all_years | sort | reverse %}
+        {% assign recent_years = all_years | slice: 0, 3 %}
+        {% assign older_years = all_years | slice: 3, 100 %}
+        
+        <!-- Recent Years (shown by default) -->
+        {% for year in recent_years %}
+        {% assign year_index = 0 %}
+        {% assign has_pubs = false %}
+        {% for publi in site.data.publications %}
+            {% assign pub_year = publi.issued.date-parts | first | first | append: "" %}
+            {% if pub_year == year %}
+                {% assign has_pubs = true %}
+            {% endif %}
+        {% endfor %}
+        {% if has_pubs %}
+        <h3>{{ year }}</h3>
+        <div class="panel-group" id="accordion-year-{{year}}">
+            <div class="panel panel-default">
+            {% for publi in site.data.publications %}
+                {% assign pub_year = publi.issued.date-parts | first | first | append: "" %}
+                {% if pub_year == year %}
+                {% assign year_index = year_index | plus: 1 %}
+                <div class="panel-heading">
+                    <a data-toggle="collapse" data-parent="#accordion-year-{{year}}"
+                       href="#collapse-year-{{year}}-{{year_index}}"
+                       style="color: inherit;">
+                    {% assign authors = "" | split:"/" %}
+                    {% for author in publi.author %}
+                        {% assign authors = authors | push: author.family %}
+                    {% endfor %}
+                    {{ authors | array_to_sentence_string }},
+                    "{{ publi.title }}",
+                    <b>{{ publi.container-title }}</b>
+                    {% if publi.type == "paper-conference" %}
+                    <span class="label label-info">Conference</span>
+                    {% elsif publi.type == "article-journal" %}
+                    <span class="label label-success">Journal</span>
+                    {% endif %}
+                    {% if publi.DOI %}
+                        <a href="https://doi.org/{{publi.DOI}}">DOI:{{publi.DOI}}</a>
+                    {% endif %}
+                    </a>
+                </div>
+                <div id="collapse-year-{{year}}-{{year_index}}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>{{ publi.abstract }}</p>
+                        {% if publi.DOI %}
+                        <a class="btn btn-outline-primary" href="https://doi.org/{{publi.DOI}}"
+                           role="button" target="blank">Link</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <!-- Older Publications (collapsed) -->
+        {% if older_years.size > 0 %}
+        <div class="panel panel-default" style="margin-top: 20px;">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#older-publications" style="color: inherit;">
+                        <span class="glyphicon glyphicon-chevron-down"></span> Older Publications ({{ older_years | first }} and earlier)
+                    </a>
+                </h4>
+            </div>
+            <div id="older-publications" class="panel-collapse collapse">
+                <div class="panel-body">
+                    {% for year in older_years %}
+                    {% assign year_index = 0 %}
+                    {% assign has_pubs = false %}
+                    {% for publi in site.data.publications %}
+                        {% assign pub_year = publi.issued.date-parts | first | first | append: "" %}
+                        {% if pub_year == year %}
+                            {% assign has_pubs = true %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if has_pubs %}
+                    <h3>{{ year }}</h3>
+                    <div class="panel-group" id="accordion-year-old-{{year}}">
+                        <div class="panel panel-default">
+                        {% for publi in site.data.publications %}
+                            {% assign pub_year = publi.issued.date-parts | first | first | append: "" %}
+                            {% if pub_year == year %}
+                            {% assign year_index = year_index | plus: 1 %}
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-parent="#accordion-year-old-{{year}}"
+                                   href="#collapse-year-old-{{year}}-{{year_index}}"
+                                   style="color: inherit;">
+                                {% assign authors = "" | split:"/" %}
+                                {% for author in publi.author %}
+                                    {% assign authors = authors | push: author.family %}
+                                {% endfor %}
+                                {{ authors | array_to_sentence_string }},
+                                "{{ publi.title }}",
+                                <b>{{ publi.container-title }}</b>
+                                {% if publi.type == "paper-conference" %}
+                                <span class="label label-info">Conference</span>
+                                {% elsif publi.type == "article-journal" %}
+                                <span class="label label-success">Journal</span>
+                                {% endif %}
+                                {% if publi.DOI %}
+                                    <a href="https://doi.org/{{publi.DOI}}">DOI:{{publi.DOI}}</a>
+                                {% endif %}
+                                </a>
+                            </div>
+                            <div id="collapse-year-old-{{year}}-{{year_index}}" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>{{ publi.abstract }}</p>
+                                    {% if publi.DOI %}
+                                    <a class="btn btn-outline-primary" href="https://doi.org/{{publi.DOI}}"
+                                       role="button" target="blank">Link</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Search -->
+    <div role="tabpanel" class="tab-pane" id="search">
+        <div style="margin: 20px 0;">
+            <input type="text" id="pub-search" class="form-control" placeholder="Search by title, author, or keyword..." style="max-width: 500px;">
+        </div>
+        <div id="search-results">
+            <p class="text-muted">Enter a search term to find publications.</p>
+        </div>
+        
+        <!-- Hidden list of all publications for search -->
+        <div id="all-publications" style="display: none;">
+            {% assign search_index = 0 %}
+            {% for publi in site.data.publications %}
+            {% assign search_index = search_index | plus: 1 %}
+            <div class="pub-item" data-index="{{search_index}}"
+                 data-title="{{ publi.title | downcase }}"
+                 data-authors="{% for author in publi.author %}{{ author.family | downcase }} {{ author.given | downcase }} {% endfor %}"
+                 data-venue="{{ publi.container-title | downcase }}"
+                 data-year="{{ publi.issued.date-parts | first | first }}"
+                 data-abstract="{{ publi.abstract | downcase | default: '' }}">
+                <div class="panel-heading" style="border-bottom: 1px solid #ddd; padding: 10px;">
+                    {% assign authors = "" | split:"/" %}
+                    {% for author in publi.author %}
+                        {% assign authors = authors | push: author.family %}
+                    {% endfor %}
+                    {{ authors | array_to_sentence_string }},
+                    "{{ publi.title }}",
+                    <b>{{ publi.container-title }}</b>
+                    ({{ publi.issued.date-parts | first | first }})
+                    {% if publi.type == "paper-conference" %}
+                    <span class="label label-info">Conference</span>
+                    {% elsif publi.type == "article-journal" %}
+                    <span class="label label-success">Journal</span>
+                    {% endif %}
+                    {% if publi.DOI %}
+                        <a href="https://doi.org/{{publi.DOI}}">DOI:{{publi.DOI}}</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var searchInput = document.getElementById('pub-search');
+    var searchResults = document.getElementById('search-results');
+    var allPubs = document.getElementById('all-publications');
+    var pubItems = allPubs.querySelectorAll('.pub-item');
+    
+    searchInput.addEventListener('input', function() {
+        var query = this.value.toLowerCase().trim();
+        
+        if (query.length < 2) {
+            searchResults.innerHTML = '<p class="text-muted">Enter at least 2 characters to search.</p>';
+            return;
+        }
+        
+        var results = [];
+        pubItems.forEach(function(item) {
+            var title = item.getAttribute('data-title') || '';
+            var authors = item.getAttribute('data-authors') || '';
+            var venue = item.getAttribute('data-venue') || '';
+            var abstract = item.getAttribute('data-abstract') || '';
+            var year = item.getAttribute('data-year') || '';
+            
+            if (title.indexOf(query) !== -1 || 
+                authors.indexOf(query) !== -1 || 
+                venue.indexOf(query) !== -1 ||
+                abstract.indexOf(query) !== -1 ||
+                year.indexOf(query) !== -1) {
+                results.push(item.querySelector('.panel-heading').outerHTML);
+            }
+        });
+        
+        if (results.length > 0) {
+            searchResults.innerHTML = '<p><strong>' + results.length + ' result(s) found:</strong></p>' + results.join('');
+        } else {
+            searchResults.innerHTML = '<p class="text-muted">No publications found matching "' + query + '".</p>';
+        }
+    });
+});
+</script>

@@ -1,0 +1,80 @@
+---
+---
+
+@import "bootstrap";
+
+body {
+  padding-top: 70px;
+  text-align: justify;
+}
+
+figcaption {
+  text-align: right;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+.breadcrumb {
+  background: none;
+  border: none;
+  display: block;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.nopadding-left {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.nopadding-right {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+.team-member-card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 900px; /* or 950px */
+}
+
+/* Carousel */
+
+.carousel {
+  border-radius: 3px 3px 3px 3px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.carousel-inner > .item > img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Home page content */
+
+#homeid {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+#homeid h3 {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+#homeid p, #homeid ul {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+#homeid ul {
+  margin-left: 20px;
+}

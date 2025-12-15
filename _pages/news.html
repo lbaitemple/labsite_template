@@ -1,0 +1,35 @@
+---
+title: "News"
+layout: default
+excerpt: "CFL Lab at Temple University"
+sitemap: false
+permalink: /news.html
+---
+<h1>{{page.title}}</h1>
+
+<ul class="list-unstyled">
+    {% for article in site.data.news %}
+        <li class="media" style="margin-bottom: 30px;">
+            {% if article.image %}
+            <div class="media-left" style="padding-right: 15px;">
+                <img src="{{ site.url }}{{ site.baseurl }}/images/{{ article.image }}" 
+                     alt="{{ article.title }}" 
+                     class="media-object" 
+                     style="max-width: 200px; border-radius: 5px;">
+            </div>
+            {% endif %}
+            <div class="media-body">
+                <h4 class="mt-0 mb-1">{{ article.title }}</h4>
+                <p><small>{{ article.date }}</small></p>
+                {% if article.tags %}
+                <p style="margin-bottom: 10px;">
+                    {% for tag in article.tags %}
+                    <span class="label label-primary" style="margin-right: 5px;">{{ tag }}</span>
+                    {% endfor %}
+                </p>
+                {% endif %}
+                {{ article.content }}
+            </div>
+        </li>
+    {% endfor %}
+</ul>
