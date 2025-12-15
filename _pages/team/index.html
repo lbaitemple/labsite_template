@@ -14,7 +14,7 @@ permalink: /team/
 <div class="row" style="display: flex; flex-wrap: wrap; justify-content: center;">
 {% assign members = site.pages | sort: 'title' %}
 {% for member in members %}
-    {% if member.path contains 'team/' and member.category == 'staff' %}
+    {% if member.layout == 'member' and member.category == 'staff' %}
     <div class="text-center" style="margin-bottom: 20px; padding: 0 15px;">
         <a href="{{ site.baseurl }}{{ member.url }}">
             <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
@@ -37,7 +37,7 @@ permalink: /team/
 <div class="row" style="display: flex; flex-wrap: wrap; justify-content: center;">
 {% assign members = site.pages | sort: 'title' %}
 {% for member in members %}
-    {% if member.path contains 'team/' and member.category == 'student' and member.role == 'PhD Student' %}
+    {% if member.layout == 'member' and member.category == 'student' and member.role == 'PhD Student' %}
     <div class="text-center" style="margin-bottom: 20px; padding: 0 15px; width: 33.33%;">
         <a href="{{ site.baseurl }}{{ member.url }}">
             <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
@@ -55,7 +55,7 @@ permalink: /team/
 <div class="row" style="display: flex; flex-wrap: wrap; justify-content: center;">
 {% assign members = site.pages | sort: 'title' %}
 {% for member in members %}
-    {% if member.path contains 'team/' and member.category == 'student' and member.role == 'Master Student' %}
+    {% if member.layout == 'member' and member.category == 'student' and member.role == 'Master Student' %}
     <div class="text-center" style="margin-bottom: 20px; padding: 0 15px; width: 33.33%;">
         <a href="{{ site.baseurl }}{{ member.url }}">
             <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
@@ -73,7 +73,7 @@ permalink: /team/
 <div class="row" style="display: flex; flex-wrap: wrap; justify-content: center;">
 {% assign members = site.pages | sort: 'title' %}
 {% for member in members %}
-    {% if member.path contains 'team/' and member.category == 'student' and member.role == 'Undergraduate Student' %}
+    {% if member.layout == 'member' and member.category == 'student' and member.role == 'Undergraduate Student' %}
     <div class="text-center" style="margin-bottom: 20px; padding: 0 15px; width: 33.33%;">
         <a href="{{ site.baseurl }}{{ member.url }}">
             <img src="{{ site.url }}{{ site.baseurl }}/images/team/{{ member.image }}"
@@ -93,7 +93,7 @@ permalink: /team/
 {% assign all_members = site.pages | where: "category", "past" %}
 {% assign past_members = "" | split: "," %}
 {% for member in all_members %}
-    {% if member.path contains 'team/' %}
+    {% if member.layout == 'member' %}
         {% assign past_members = past_members | push: member %}
     {% endif %}
 {% endfor %}
