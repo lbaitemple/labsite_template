@@ -1,21 +1,31 @@
-{
-  "publications": [
-    {
-      "title": "Sample Paper Title: A Novel Approach to Research",
-      "authors": "Author1, Author2, Author3",
-      "venue": "International Conference on Example Research (ICER)",
-      "year": 2024,
-      "type": "conference",
-      "pdf": "https://example.com/paper.pdf",
-      "doi": "10.1234/example.2024"
+[
+  {
+    "title": "Sample Paper Title: A Novel Approach to Research",
+    "author": [
+      {"family": "Author1", "given": "First1"},
+      {"family": "Author2", "given": "First2"},
+      {"family": "Author3", "given": "First3"}
+    ],
+    "container-title": "International Conference on Example Research (ICER)",
+    "issued": {
+      "date-parts": [[2024]]
     },
-    {
-      "title": "Another Research Paper on Important Topics",
-      "authors": "Author2, Author4, Author1",
-      "venue": "Journal of Example Studies",
-      "year": 2023,
-      "type": "journal",
-      "pdf": "https://example.com/paper2.pdf"
-    }
-  ]
-}
+    "type": "paper-conference",
+    "DOI": "10.1234/example.2024",
+    "abstract": "This is a sample abstract describing the research paper."
+  },
+  {
+    "title": "Another Research Paper on Important Topics",
+    "author": [
+      {"family": "Author2", "given": "First2"},
+      {"family": "Author4", "given": "First4"},
+      {"family": "Author1", "given": "First1"}
+    ],
+    "container-title": "Journal of Example Studies",
+    "issued": {
+      "date-parts": [[2023]]
+    },
+    "type": "article-journal",
+    "abstract": "This is another sample abstract for the journal article."
+  }
+]
