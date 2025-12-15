@@ -3,6 +3,11 @@ title: Your Lab Name
 email: your-email@university.edu
 description: > 
   Your lab description here. This is a template for academic research lab websites.
+address: >
+  Rm 604, College of Engineering<br>
+  1947 N 12th Street<br>
+  Philadelphia, PA 19122<br>
+  <br>
 baseurl: "/labsite_template" # Leave empty for root domain, or use "/your-repo-name" for GitHub Pages
 url: "" # GitHub Pages will auto-populate this
 # Use site.github.url in templates - it's automatically set by GitHub Pages
