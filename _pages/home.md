@@ -1,15 +1,15 @@
 ---
 title: "Home"
 layout: default
-excerpt: "Your Lab at Your University"
+excerpt: "CFL at Temple University"
 sitemap: false
 permalink: /
 ---
 
 <div class="jumbotron" style="background-color: #f8f9fa; padding: 40px 30px; margin-bottom: 30px;">
-  <h1 style="margin-top: 0;">Welcome to [Your Lab Name]</h1>
-  <p class="lead">We are a research group at [Your University] focused on [your research areas].</p>
-  <p>Our mission is to advance the state of the art in [your field] through innovative research and collaboration.</p>
+  <h1 style="margin-top: 0;">Welcome to CFL</h1>
+  <p class="lead">We are a research group at Temple University focused on sensor fusion in distributed systems.</p>
+  <p>Our mission is to advance the state of the art in sensor fusion through innovative research and collaboration.</p>
   <p>
     <a class="btn btn-primary btn-lg" href="{{ site.baseurl }}/research" role="button">Learn more about our research</a>
   </p>
@@ -18,12 +18,12 @@ permalink: /
 <div class="row">
   <div class="col-sm-8">
     <h2>About the Lab</h2>
-    <p>Welcome to [Your Lab Name]. We are a research group at [Your University] focused on [your research areas].</p>
+    <p>Welcome to CFL. We are a research group at Temple University focused on sensor fusion.</p>
     
     <p>Our research interests include:</p>
     <ul>
-      <li>Research area 1</li>
-      <li>Research area 2</li>
+      <li>distributed security</li>
+      <li>homomrphic encryption</li>
       <li>Research area 3</li>
       <li>Research area 4</li>
     </ul>
