@@ -1,15 +1,15 @@
 ---
 title: "Home"
 layout: default
-excerpt: "CFL at Temple University"
+excerpt: "Your Lab at Your University"
 sitemap: false
 permalink: /
 ---
 
 <div class="jumbotron" style="background-color: #f8f9fa; padding: 40px 30px; margin-bottom: 30px;">
-  <h1 style="margin-top: 0;">Welcome to CFL</h1>
-  <p class="lead">We are a research group at Temple University focused on sensor fusion in distributed systems.</p>
-  <p>Our mission is to advance the state of the art in sensor fusion through innovative research and collaboration.</p>
+  <h1 style="margin-top: 0;">Welcome to [Your Lab Name]</h1>
+  <p class="lead">We are a research group at [Your University] focused on [your research areas].</p>
+  <p>Our mission is to advance the state of the art in [your field] through innovative research and collaboration.</p>
   <p>
     <a class="btn btn-primary btn-lg" href="{{ site.baseurl }}/research" role="button">Learn more about our research</a>
   </p>
@@ -18,24 +18,24 @@ permalink: /
 <div class="row">
   <div class="col-sm-8">
     <h2>About the Lab</h2>
-    <p>Welcome to CFL. We are a research group at Temple University focused on sensor fusion.</p>
+    <p>Welcome to [Your Lab Name]. We are a research group at [Your University] focused on [your research areas].</p>
     
     <p>Our research interests include:</p>
     <ul>
-      <li>distributed security</li>
-      <li>homomrphic encryption</li>
-      <li>Robotics and autonomous platforms for real-world sensing and actuation</li>
-      <li>Edge and cloud computing architectures for scalable deployment</li>
+      <li>Research area 1</li>
+      <li>Research area 2</li>
+      <li>Research area 3</li>
+      <li>Research area 4</li>
     </ul>
     
-    <p>We collaborate with industry partners and academic institutions worldwide to advance the state of the art in sensor fusion.</p>
+    <p>We collaborate with industry partners and academic institutions worldwide to advance the state of the art in [your field].</p>
     
     <h3>Research Focus</h3>
     <p>Our work addresses fundamental challenges in:</p>
     <ul>
-      <li>System interoperability between robotics, AI models, and legacy infrastructure.</li>
-      <li>Secure communication protocols for multi-agent collaboration.</li>
-      <li>Federated learning and multi-party computation for collaborative intelligence.</li>
+      <li>Challenge area 1</li>
+      <li>Challenge area 2</li>
+      <li>Challenge area 3</li>
     </ul>
     
     <p>We develop innovative solutions that combine theory and practice to solve real-world problems.</p>
