@@ -24,18 +24,18 @@ permalink: /
     <ul>
       <li>distributed security</li>
       <li>homomrphic encryption</li>
-      <li>Research area 3</li>
-      <li>Research area 4</li>
+      <li>Robotics and autonomous platforms for real-world sensing and actuation</li>
+      <li>Edge and cloud computing architectures for scalable deployment</li>
     </ul>
     
-    <p>We collaborate with industry partners and academic institutions worldwide to advance the state of the art in [your field].</p>
+    <p>We collaborate with industry partners and academic institutions worldwide to advance the state of the art in sensor fusion.</p>
     
     <h3>Research Focus</h3>
     <p>Our work addresses fundamental challenges in:</p>
     <ul>
-      <li>Challenge area 1</li>
-      <li>Challenge area 2</li>
-      <li>Challenge area 3</li>
+      <li>System interoperability between robotics, AI models, and legacy infrastructure.</li>
+      <li>Secure communication protocols for multi-agent collaboration.</li>
+      <li>Federated learning and multi-party computation for collaborative intelligence.</li>
     </ul>
     
     <p>We develop innovative solutions that combine theory and practice to solve real-world problems.</p>
