@@ -2,6 +2,8 @@
 
 A clean, modern Jekyll template for academic research lab websites.
 
+[Demo site](https://lbaitemple.github.io/labsite_template/)
+
 ## Features
 
 - **Home Page**: Dynamic image slider with lab description
